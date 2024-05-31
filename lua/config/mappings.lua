@@ -34,7 +34,7 @@ map("x", "<Leader>/", "gc", { remap = true, desc = "Toggle comment" })
 map("n", "<Leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
 
 -- Move lines
-Map("n", "<A-J>", "<Cmd>m .+1<CR>==", { desc = "Move current line down" })
+map("n", "<A-J>", "<Cmd>m .+1<CR>==", { desc = "Move current line down" })
 map("n", "<A-K>", "<Cmd>m .-2<CR>==", { desc = "Move current line up" })
 map("i", "<A-J>", "<esc><Cmd>m .+1<CR>==gi", { desc = "Move line down" })
 map("i", "<A-K>", "<esc><Cmd>m .-2<CR>==gi", { desc = "Move line up" })
