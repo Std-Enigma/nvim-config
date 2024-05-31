@@ -34,12 +34,12 @@ map("x", "<Leader>/", "gc", { remap = true, desc = "Toggle comment" })
 map("n", "<Leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
 
 -- Move lines
-map("n", "<A-J>", "<Cmd>m .+1<CR>==", { desc = "Move current line down" })
-map("n", "<A-K>", "<Cmd>m .-2<CR>==", { desc = "Move current line up" })
-map("i", "<A-J>", "<esc><Cmd>m .+1<CR>==gi", { desc = "Move line down" })
-map("i", "<A-K>", "<esc><Cmd>m .-2<CR>==gi", { desc = "Move line up" })
-map("v", "<A-J>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
-map("v", "<A-K>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+map("n", "<A-j>", "<Cmd>m .+1<CR>==", { desc = "Move current line down" })
+map("n", "<A-k>", "<Cmd>m .-2<CR>==", { desc = "Move current line up" })
+map("i", "<A-j>", "<Esc><Cmd>m .+1<CR>==gi", { desc = "Move line down" })
+map("i", "<A-k>", "<esc><Cmd>m .-2<CR>==gi", { desc = "Move line up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 -- Tab navigation
 map("n", "]t", function() vim.cmd.tabnext() end, { desc = "Next tab" })
