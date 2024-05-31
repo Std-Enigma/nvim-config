@@ -45,15 +45,13 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 -- Close some filetypes with q
-vim.api.nvim_create_autocmd("BufWinEnter", {
+vim.api.nvim_create_autocmd("FileType", {
   group = augroup("CloseWithQ"),
   pattern = {
     "qf",
     "help",
     "notify",
-    "nofile",
     "lspinfo",
-    "quitckfix",
     "checkhealth",
     "spectre_panel",
     "PlenaryTestPopup",
