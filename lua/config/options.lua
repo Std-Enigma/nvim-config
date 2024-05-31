@@ -46,8 +46,8 @@ opt.breakindent = true -- wrap indent to match  line start
 opt.preserveindent = true -- preserve indent structure as much as possible
 
 -- Split options
-opt.splitbelow = true -- splitting a new window below the current one
 opt.splitright = true -- splitting a new window at the right of the current one
+opt.splitbelow = true -- splitting a new window below the current one
 
 -- Data saving options
 opt.updatetime = 300 -- length of time to wait before triggering the plugin
