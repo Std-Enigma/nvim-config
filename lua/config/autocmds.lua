@@ -1,5 +1,5 @@
 local function augroup(name)
-  return vim.api.nvim_create_augruop(name, { clear = true })
+  return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
 -- Reload the file when buffer focus was changed
