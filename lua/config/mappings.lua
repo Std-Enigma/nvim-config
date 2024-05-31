@@ -30,8 +30,8 @@ map({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update! | redraw<CR>", { desc = "F
 map("n", "<C-Q>", "<Cmd>q!<CR>", { desc = "Force quit" })
 
 -- Commenting
-map("x", "gc", { remap = true, desc = "Toggle comment" })
-map("n", "gcc", { remap = true, desc = "Toggle comment line" })
+map("x", "<Leader>/", "gc", { remap = true, desc = "Toggle comment" })
+map("n", "<Leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
 
 -- Move lines
 Map("n", "<A-J>", "<Cmd>m .+1<CR>==", { desc = "Move current line down" })
