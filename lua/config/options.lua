@@ -12,6 +12,7 @@ opt.virtualedit = "block" -- allow going past end of line in visual block mode
 opt.clipboard = "unnamedplus" -- connection to the system clipboard
 
 opt.backspace = vim.list_extend(vim.opt.backspace:get(), { "nostop" }) -- don't stop backspace at insert
+opt.shortmess = vim.tbl_deep_extend("force", vim.opt.shortmess:get(), { s = true, I = true }) -- disable search count wrap and startup messages
 opt.diffopt = vim.list_extend(vim.opt.diffopt:get(), { "algorithm:histogram", "linematch:60" }) -- enable linematch diff algorithm
 
 -- Folding options
