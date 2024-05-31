@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     "checkhealth",
     "spectre_panel",
     "PlenaryTestPopup",
-  }
+  },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<Cmd>close<CR>", {
