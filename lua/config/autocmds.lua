@@ -20,9 +20,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+local auto_view_group = augroup("AutoView")
 -- Save buff view automatically for real files
 vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
-  group = augroup("AutoView"),
+  group = auto_view_group,
   callback = function(event)
     if vim.b[event.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
   end,
@@ -30,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
 
 -- Save buffer view automatically for real files
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = augroup("AutoView"),
+  group = auto_view_group,
   callback = function(event)
     if not vim.b[event.buf].view_activated then
       local filetype = vim.bo[event.buf].filetype
@@ -103,7 +104,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Disable line number/fold column/sign column for terminals
 vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup("TerminalSettins"),
-  pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- Auto create directory when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup("AutoCreateDir"),
   callback = function(event)
     if event.match:match("^%w%w+:[\\/][\\/]") then
