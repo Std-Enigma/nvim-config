@@ -24,7 +24,6 @@ map("n", "<C-Right>", function() require("smart-splits").resize_right() end, { d
 -- Goto resize mode <Alt> + R key
 map("n", "<A-r>", function() require("smart-splits").start_resize_mode() end, { desc = "Enter resize mode" })
 
-
 -- Swap buffers between splits
 map("n", "<C-S-Left>", function() require("smart-splits").swap_buf_left() end, { desc = "Swap buffer left" })
 map("n", "<C-S-Down>", function() require("smart-splits").swap_buf_down() end, { desc = "Swap buffer down" })
