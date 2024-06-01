@@ -95,6 +95,20 @@ map("n", "<Leader>pU", function() require("lazy").update() end, { desc = "Plugin
 map("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Hover diagnostics" })
 map("n", "<Leader>ld", function() vim.diagnostic.open_float() end, { desc = "Hover diagnostics" })
 
+-- Toggle mappings
+map("n", "<Leader>ub", function() require("util.toggles").background() end, { desc = "Toggle background" })
+map("n", "<Leader>ug", function() require("util.toggles").signcolumn() end, { desc = "Toggle signcolumn" })
+map("n", "<Leader>u>", function() require("util.toggles").foldcolumn() end, { desc = "Toggle foldcolumn" })
+map("n", "<Leader>ui", function() require("util.toggles").indent() end, { desc = "Change indent setting" })
+map("n", "<Leader>ul", function() require("util.toggles").statusline() end, { desc = "Toggle statusline" })
+map("n", "<Leader>un", function() require("util.toggles").number() end, { desc = "Change line numbering" })
+map("n", "<Leader>up", function() require("util.toggles").paste() end, { desc = "Toggle paste mode" })
+map("n", "<Leader>us", function() require("util.toggles").spell() end, { desc = "Toggle spellcheck" })
+map("n", "<Leader>uS", function() require("util.toggles").conceal() end, { desc = "Toggle conceal" })
+map("n", "<Leader>ut", function() require("util.toggles").tabline() end, { desc = "Toggle tabline" })
+map("n", "<Leader>uw", function() require("util.toggles").wrap() end, { desc = "Toggle wrap" })
+map("n", "<Leader>uy", function() require("util.toggles").buffer_syntax() end, { desc = "Toggle syntax highlight" })
+
 -- Plugin mappings
 
 --- nvim-notify
