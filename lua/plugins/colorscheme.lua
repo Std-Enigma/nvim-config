@@ -1,7 +1,6 @@
 return {
 	{
 		"folke/tokyonight.nvim",
-		lazy = true,
 		priority = 1000,
 		opts = {
 			style = "night",
@@ -14,7 +13,6 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		lazy = true,
 		opts = {
 			term_colors = true,
 			show_end_of_buffer = true,
