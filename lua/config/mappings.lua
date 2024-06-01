@@ -21,8 +21,8 @@ map("n", "<C-Down>", function() require("smart-splits").resize_down() end, { des
 map("n", "<C-Left>", function() require("smart-splits").resize_left() end, { desc = "Resize split left" })
 map("n", "<C-Right>", function() require("smart-splits").resize_right() end, { desc = "Resize split right" })
 
--- Goto resize mode <Ctrl> + <Shift> + R key
-map("n", "<C-S-R>", function() require("smart-splits").start_resize_mode() end, { desc = "Enter resize mode" })
+-- Goto resize mode <Alt> + R key
+map("n", "<A-r>", function() require("smart-splits").start_resize_mode() end, { desc = "Enter resize mode" })
 
 
 -- Swap buffers between splits
@@ -98,7 +98,7 @@ map("n", "<Leader>ld", function() vim.diagnostic.open_float() end, { desc = "Hov
 
 -- Plugin mappings
 
--- nvim-notify
+--- nvim-notify
 map("n", "<Leader>uD", function() require("notify").dismiss { pending = true, silent = true } end, { desc = "Dismiss notifications" })
 
 --- noice.nvim
@@ -110,3 +110,31 @@ map("n", "<Leader>unt", function() require("noice").cmd("telescope") end, { desc
 map("c", "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, { desc = "Redirect cmdline" })
 map({"i", "n", "s"}, "<C-F>", function() if not require("noice.lsp").scroll(4) then return "<C-F>" end end, { silent = true, expr = true, desc = "Scroll Forward" })
 map({"i", "n", "s"}, "<C-B>", function() if not require("noice.lsp").scroll(-4) then return "<C-B>" end end, { silent = true, expr = true, desc = "Scroll Backward" })
+
+--- trouble.nvim
+map("n", "<Leader>xl", "<Cmd>Trouble loclist toggle<CR>", { desc = "Location list" })
+map("n", "<Leader>xq", "<Cmd>Trouble quickfix toggle<CR>", { desc = "Quickfix list" })
+map("n", "<Leader>xt", "Cmd>TodoTrouble, keywords=TODO,FIX,FIXME<CR>", { desc = "Todo/FIX/FIXME list" })
+map("n", "<Leader>xT", "Cmd>TodoTrouble<CR>", { desc = "Todo list" })
+map("n", "<Leader>xX", "Cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (global)" })
+map("n", "<Leader>xx", "Cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Diagnostics (buffer)" })
+map("n", "]q", function()
+  if require("trouble").is_open() then
+    require("trouble").next({ skip_groups = true, jump = true })
+  else
+    local ok, err = pcall(vim.cmd.cprev)
+    if not ok then
+      vim.notify(err, vim.log.levels.ERROR)
+    end
+  end
+end, { desc = "Next Trouble/Quickfix Item" })
+map("n", "[q", function()
+  if require("trouble").is_open() then
+    require("trouble").prev({ skip_groups = true, jump = true })
+  else
+    local ok, err = pcall(vim.cmd.cprev)
+    if not ok then
+      vim.notify(err, vim.log.levels.ERROR)
+    end
+  end
+end, { desc = "Previous Trouble/Quickfix Item" })
