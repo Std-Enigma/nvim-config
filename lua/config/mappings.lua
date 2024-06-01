@@ -53,7 +53,7 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selected lin
 
 -- Tab navigation
 map("n", "]t", function() vim.cmd.tabnext() end, { desc = "Next tab" })
-map("n", "[t", function() vim.cmd.tabnext() end, { desc = "Previous tab" })
+map("n", "[t", function() vim.cmd.tabprev() end, { desc = "Previous tab" })
 
 -- Buffer navigation
 map("n", "]b", "<Cmd>bnext<CR>", { desc = "Next buffer" })
