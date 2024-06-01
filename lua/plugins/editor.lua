@@ -16,4 +16,17 @@ return {
       disable = { filetypes = { "TelescopePrompt" } },
     },
   },
+
+  -- better diagnostics list and others
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    opts = {
+      keys = {
+        ["q"] = "close",
+        ["<Esc>"] = "close",
+        ["<C-E>"] = "close",
+      },
+    },
+  },
 }
