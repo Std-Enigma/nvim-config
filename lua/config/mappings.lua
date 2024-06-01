@@ -20,6 +20,12 @@ map("n", "<C-Down>", function() require("smart-splits").resize_down() end, { des
 map("n", "<C-Left>", function() require("smart-splits").resize_left() end, { desc = "Resize split left" })
 map("n", "<C-Right>", function() require("smart-splits").resize_right() end, { desc = "Resize split right" })
 
+-- Swap buffers between splits
+map("n", "<C-S-Left>", function() require("smart-splits").swap_buf_left() end, { desc = "Swap buffer left" })
+map("n", "<C-S-Down>", function() require("smart-splits").swap_buf_down() end, { desc = "Swap buffer down" })
+map("n", "<C-S-Up>", function() require("smart-splits").swap_buf_up() end, { desc = "Swap buffer up" })
+map("n", "<C-S-Right>", function() require("smart-splits").swap_buf_right() end, { desc = "Swap buffer right" })
+
 -- Operations
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
 map("n", "<Leader>q", "<Cmd>confirm q<CR>", { desc = "Quit Window" })
