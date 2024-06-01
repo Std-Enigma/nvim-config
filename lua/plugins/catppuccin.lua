@@ -10,8 +10,6 @@ return {
 		integrations = {
 			hop = true,
 			mason = true,
-			noice = true,
-			notify = true,
 			aerial = true,
 			harpoon = true,
 			neotree = true,
@@ -20,7 +18,6 @@ return {
 			lsp_trouble = true,
 			illuminate = { lsp = true },
 			telescope = { style = "nvchad" },
-			-- colorful_winsep = { enabled = true },
 			indent_blankline = { scope_color = "lavender" },
 		},
 	},
