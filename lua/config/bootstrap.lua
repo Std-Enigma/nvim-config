@@ -45,4 +45,4 @@ require("lazy").setup("plugins", {
   },
 })
 
-vim.cmd.colorscheme("tokyonight") -- seutp the colorscheme
+vim.cmd.colorscheme("catppuccin") -- seutp the colorscheme
