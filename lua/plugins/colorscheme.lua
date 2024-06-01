@@ -33,7 +33,7 @@ return {
 				lsp_trouble = true,
 				illuminate = { lsp = true },
 				telescope = { style = "nvchad" },
-				-- colorful_winsep = { enabled = true },
+				colorful_winsep = { enabled = true },
 				indent_blankline = { scope_color = "lavender" },
 			},
 		},
