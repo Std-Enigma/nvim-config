@@ -65,6 +65,9 @@ opt.showmode = false -- disable showing modes in command line
 opt.cursorline = true -- highlight the text line of the cursor
 opt.termguicolors = true -- enable 24-bit RGB color in the TUI
 
+if not vim.t.bufs then vim.t.bufs = vim.api.nvim_list_bufs() end -- initialize buffer list
+vim.t = { bufs = vim.t.bufs }
+
 -- Leader keys
  vim.g.mapleader = " "
  vim.g.localmapleader = ","
