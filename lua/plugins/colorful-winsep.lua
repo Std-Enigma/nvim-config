@@ -8,7 +8,7 @@ return {
 
   {
     "catppuccin/nvim",
-    opts = { integrations = { colorful_winsep = { enabled = true } } },
     optional = true,
+    opts = { integrations = { colorful_winsep = { enabled = true } } },
   },
 }

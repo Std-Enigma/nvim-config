@@ -22,8 +22,8 @@ return {
   },
 
   {
-    "catppuccin/nvim",
-    opts = { integrations = { noice = true } },
+    "catppuccin",
     optional = true,
+    opts = { integrations = { noice = true } },
   },
 }
