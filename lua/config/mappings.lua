@@ -9,16 +9,16 @@ map("n", "|", "<Cmd>vsplit<CR>", { desc = "Vertical Split" })
 map("n", "\\", "<Cmd>split<CR>", { desc = "Horizontal Split" })
 
 -- Move to split using the <Ctrl> hjkl keys
-map("n", "<C-H>", "<C-w>h", { desc = "Go to left split" })
-map("n", "<C-J>", "<C-w>j", { desc = "Go to lower split" })
-map("n", "<C-K>", "<C-w>k", { desc = "Go to upper split" })
-map("n", "<C-L>", "<C-w>l", { desc = "Go to right split" })
+map("n", "<C-H>", function() require("smart-splits").move_cursor_left() end, { desc = "Go to left split" })
+map("n", "<C-J>", function() require("smart-splits").move_cursor_down() end, { desc = "Go to lower split" })
+map("n", "<C-K>", function() require("smart-splits").move_cursor_up() end, { desc = "Go to upper split" })
+map("n", "<C-L>", function() require("smart-splits").move_cursor_right() end, { desc = "Go to right split" })
 
 -- Resize split using <Ctrl> arrow keys
-map("n", "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Resize split up" })
-map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Resize split down" })
-map("n", "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Resize split left" })
-map("n", "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Resize split right" })
+map("n", "<C-Up>", function() require("smart-splits").resize_up() end, { desc = "Resize split up" })
+map("n", "<C-Down>", function() require("smart-splits").resize_down() end, { desc = "Resize split down" })
+map("n", "<C-Left>", function() require("smart-splits").resize_left() end, { desc = "Resize split left" })
+map("n", "<C-Right>", function() require("smart-splits").resize_right() end, { desc = "Resize split right" })
 
 -- Operations
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
