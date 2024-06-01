@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.animate",
-  event = "VeryLazy",
+  event = "CursorMoved",
   cond = not (vim.g.neovide or vim.g.vscode), -- don't load when using vscode or neovide
   opts = {
     open = { enable = false }, -- disable window openning animations because of a glitch in terminal
