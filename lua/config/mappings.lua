@@ -91,11 +91,11 @@ map("n", "<Leader>ld", function() vim.diagnostic.open_float() end, { desc = "Hov
 map("n", "<Leader>uD", function() require("notify").dismiss { pending = true, silent = true } end, { desc = "Dismiss notifications" })
 
 --- noice.nvim
-map("n", "<Leader>sna", function() require("noice").cmd("all") end, { desc = "Noice all" })
-map("n", "<Leader>snd", function() require("noice").cmd("dismiss") end, { desc = "Dismiss all" })
-map("n", "<Leader>snh", function() require("noice").cmd("history") end, { desc = "Noice history" })
-map("n", "<Leader>snl", function() require("noice").cmd("last") end, { desc = "Noice Last message" })
-map("n", "<Leader>snt", function() require("noice").cmd("telescope") end, { desc = "Noice telescope" })
+map("n", "<Leader>una", function() require("noice").cmd("all") end, { desc = "Noice all" })
+map("n", "<Leader>und", function() require("noice").cmd("dismiss") end, { desc = "Dismiss all" })
+map("n", "<Leader>unh", function() require("noice").cmd("history") end, { desc = "Noice history" })
+map("n", "<Leader>unl", function() require("noice").cmd("last") end, { desc = "Noice Last message" })
+map("n", "<Leader>unt", function() require("noice").cmd("telescope") end, { desc = "Noice telescope" })
 map("c", "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, { desc = "Redirect cmdline" })
 map({"i", "n", "s"}, "<C-F>", function() if not require("noice.lsp").scroll(4) then return "<C-F>" end end, { silent = true, expr = true, desc = "Scroll Forward" })
 map({"i", "n", "s"}, "<C-B>", function() if not require("noice.lsp").scroll(-4) then return "<C-B>" end end, { silent = true, expr = true, desc = "Scroll Backward" })
