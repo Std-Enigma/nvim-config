@@ -25,10 +25,10 @@ map("n", "<C-Right>", function() require("smart-splits").resize_right() end, { d
 map("n", "<A-r>", function() require("smart-splits").start_resize_mode() end, { desc = "Enter resize mode" })
 
 -- Swap buffers between splits
-map("n", "<C-S-Left>", function() require("smart-splits").swap_buf_left() end, { desc = "Swap buffer left" })
-map("n", "<C-S-Down>", function() require("smart-splits").swap_buf_down() end, { desc = "Swap buffer down" })
-map("n", "<C-S-Up>", function() require("smart-splits").swap_buf_up() end, { desc = "Swap buffer up" })
-map("n", "<C-S-Right>", function() require("smart-splits").swap_buf_right() end, { desc = "Swap buffer right" })
+map("n", "<A-Left>", function() require("smart-splits").swap_buf_left() end, { desc = "Swap buffer left" })
+map("n", "<A-Down>", function() require("smart-splits").swap_buf_down() end, { desc = "Swap buffer down" })
+map("n", "<A-Up>", function() require("smart-splits").swap_buf_up() end, { desc = "Swap buffer up" })
+map("n", "<A-Right>", function() require("smart-splits").swap_buf_right() end, { desc = "Swap buffer right" })
 
 -- Operations
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
