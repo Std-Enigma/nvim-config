@@ -40,8 +40,8 @@ map({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update! | redraw<CR>", { desc = "F
 map("n", "<C-Q>", "<Cmd>q!<CR>", { desc = "Force quit" })
 
 -- Commenting
-map("x", "<Leader>/", "gc", { remap = true, desc = "Toggle comment" })
-map("n", "<Leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
+map("n", "<Leader>/", function() return require("Comment.api").call("toggle.linewise." .. (vim.v.count == 0 and "current" or "count_repeat"), "g@$")() end, { expr = true, silent = true, desc = "Toggle comment line" })
+map("x", "<Leader>/", "<Esc><Cmd>lua require('Comment.api').locked('toggle.linewise')(vim.fn.visualmode())<CR>", { expr = true, silent = true, desc = "Toggle comment" })
 
 -- Move lines
 map("n", "<A-j>", "<Cmd>m .+1<CR>==", { silent = true, desc = "Move current line down" })
