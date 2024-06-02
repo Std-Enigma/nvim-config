@@ -51,7 +51,9 @@ opt.splitbelow = true -- splitting a new window below the current one
 
 -- Data saving options
 opt.updatetime = 300 -- length of time to wait before triggering the plugin
-opt.viewoptions = vim.tbl_filter(function(val) return val ~= "curdir" end, vim.opt.viewoptions:get())
+opt.viewoptions = vim.tbl_filter(function(val)
+	return val ~= "curdir"
+end, vim.opt.viewoptions:get())
 
 -- Interface options
 opt.cmdheight = 0 -- hide command line unless needed
@@ -65,12 +67,14 @@ opt.showmode = false -- disable showing modes in command line
 opt.cursorline = true -- highlight the text line of the cursor
 opt.termguicolors = true -- enable 24-bit RGB color in the TUI
 
-if not vim.t.bufs then vim.t.bufs = vim.api.nvim_list_bufs() end -- initialize buffer list
+if not vim.t.bufs then
+	vim.t.bufs = vim.api.nvim_list_bufs()
+end -- initialize buffer list
 vim.t = { bufs = vim.t.bufs }
 
 -- Leader keys
- vim.g.mapleader = " "
- vim.g.localmapleader = ","
+vim.g.mapleader = " "
+vim.g.localmapleader = ","
 
- -- Markdown options
- vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+-- Markdown options
+vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
