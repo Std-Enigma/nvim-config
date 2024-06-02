@@ -2,7 +2,7 @@ return {
 	"echasnovski/mini.indentscope",
 	event = { "BufReadPost", "BufNewFile", "BufWritePost" },
 	opts = {
-		symbol = "│",
+		symbol = "▏",
 		options = { try_as_border = true },
 	},
 	init = function()

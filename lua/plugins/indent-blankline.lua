@@ -5,7 +5,7 @@ return {
 		cmd = { "IBLEnable", "IBLDisable", "IBLToggle", "IBLEnableScope", "IBLDisableScope", "IBLToggleScope" },
 		main = "ibl",
 		opts = {
-			indent = { char = "│", tab_char = "│" },
+			indent = { char = "▏", tab_char = "▏" },
 			scope = { show_start = false, show_end = false },
 			exclude = {
 				buftypes = {
