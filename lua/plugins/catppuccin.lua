@@ -14,8 +14,6 @@ return {
 			harpoon = true,
 			neotree = true,
 			overseer = true,
-			which_key = true,
-			lsp_trouble = true,
 			illuminate = { lsp = true },
 			telescope = { style = "nvchad" },
 			indent_blankline = { scope_color = "lavender" },
