@@ -16,7 +16,6 @@ return {
 			overseer = true,
 			illuminate = { lsp = true },
 			telescope = { style = "nvchad" },
-			indent_blankline = { scope_color = "lavender" },
 		},
 	},
 }
