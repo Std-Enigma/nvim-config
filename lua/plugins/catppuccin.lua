@@ -14,7 +14,6 @@ return {
 			harpoon = true,
 			neotree = true,
 			overseer = true,
-			illuminate = { lsp = true },
 			telescope = { style = "nvchad" },
 		},
 	},
