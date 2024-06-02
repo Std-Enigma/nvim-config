@@ -6,8 +6,8 @@ return {
   },
 
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
-    opts = { integrations = { colorful_winsep = { enabled = true } } },
+    opts = { integrations = { colorful_winsep = { enabled = false } } }, -- TODO: enable whenever the bug was fixed.
   },
 }

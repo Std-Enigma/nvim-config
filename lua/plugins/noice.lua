@@ -22,7 +22,7 @@ return {
   },
 
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     opts = { integrations = { noice = true } },
   },
