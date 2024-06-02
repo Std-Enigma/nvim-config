@@ -151,3 +151,12 @@ map("n", "[q", function()
     end
   end
 end, { desc = "Previous Trouble/Quickfix Item" })
+
+--- indent-blankline.nvim
+map("n", "<Leader>u|", "<Cmd>IBLToggle<CR>", { desc = "Toggle indent guides" })
+
+--- vim-illuminate
+map("n", "]r", function() require("illuminate")["goto_next_reference"](false) end, { desc = "Next reference" })
+map("n", "[r", function() require("illuminate")["goto_prev_reference"](false) end, { desc = "Pervious reference" })
+map("n", "<Leader>ur", function() require("illuminate").toggle_buf() end, { desc = "Toggle reference highlighting (buffer)" })
+map("n", "<Leader>uR", function() require("illuminate").toggle() end, { desc = "Toggle reference highlighting (global)" })
