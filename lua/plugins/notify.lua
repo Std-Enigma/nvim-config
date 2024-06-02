@@ -15,7 +15,7 @@ return {
   },
 
   {
-    "catppuccin",
+    "catppuccin/nvim",
     optional = true,
     opts = { integrations = { notify = true } },
   },

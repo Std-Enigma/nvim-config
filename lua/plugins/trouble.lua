@@ -12,7 +12,7 @@ return {
   },
 
   {
-    "catppuccin",
+    "catppuccin/nvim",
     optional = true,
 		opts = { integrations = { lsp_trouble = true } },
   },
