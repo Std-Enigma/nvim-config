@@ -224,3 +224,53 @@ map("i", "<F7>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminl" })
 map("n", "<C-'>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal" }) -- requires terminal that supports binding <C-'>
 map("n", "<C-'>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" }) -- requires terminal that supports binding <C-'>
 map("n", "<C-'>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminl" }) -- requires terminal that supports binding <C-'>
+
+--- telescope.nvim
+local is_available = util.is_available
+if vim.fn.executable("git") == 1 then
+  map("n", "<Leader>gb", function() require("telescope.builtin").git_branches({ use_file_path = true }) end, { desc = "Git branches" })
+  map("n", "<Leader>gc", function() require("telescope.builtin").git_commits({ use_file_path = true }) end, { desc = "Git commits (repository)" })
+  map("n", "<Leader>gC", function() require("telescope.builtin").git_bcommits({ use_file_path = true }) end, { desc = "Git commits (current file)" })
+  map("n", "<Leader>gt", function() require("telescope.builtin").git_status({ use_file_path = true }) end, { desc = "Git status" })
+end
+map("n", "<Leader>f<CR>", function() require("telescope.builtin").resume() end, { desc = "Resume previous search" })
+map("n", "<Leader>f'", function() require("telescope.builtin").marks() end, { desc = "Find marks" })
+map("n", "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, { desc = "Find words in current buffer" })
+map("n", "<Leader>fa", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "Config Files",
+    cwd = vim.fn.stdpath("config"),
+    follow = true,
+  })
+end, { desc = "Find Neovim config files" })
+map("n", "<Leader>fb", function() require("telescope.builtin").buffers() end, { desc = "Find buffers" })
+map("n", "<Leader>fc", function() require("telescope.builtin").grep_string() end, { desc = "Find word under cursor" })
+map("n", "<Leader>fC", function() require("telescope.builtin").commands() end, { desc = "Find commands" })
+map("n", "<Leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" })
+map("n", "<Leader>fF", function() require("telescope.builtin").find_files({ hidden = true, no_ignore = true }) end, { desc = "Find all files" })
+map("n", "<Leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Find help" })
+map("n", "<Leader>fk", function() require("telescope.builtin").keymaps() end, { desc = "Find keymaps" })
+map("n", "<Leader>fm", function() require("telescope.builtin").man_pages() end, { desc = "Find man" })
+if is_available("nvim-notify") then
+  map("n", "<Leader>fn", function() require("telescope").extensions.notify.notify() end, { desc = "Find notifications" })
+end
+map("n", "<Leader>fo", function() require("telescope.builtin").oldfiles() end, { desc = "Find history" })
+map("n", "<Leader>fr", function() require("telescope.builtin").registers() end, { desc = "Find registers" })
+map("n", "<Leader>ft", function() require("telescope.builtin").colorscheme({ enable_preview = true }) end, { desc = "Find themes" })
+if vim.fn.executable("rg") == 1 then
+  map("n", "<Leader>fw", function() require("telescope.builtin").live_grep() end, { desc = "Find words" })
+  map("n", "<Leader>fW", function()
+    require("telescope.builtin").live_grep({
+      additional_args = function(args)
+        return vim.list_extend(args, { "--hidden", "--no-ignore" })
+      end,
+    })
+  end, { desc = "Find words in all files" })
+end
+map("n", "<Leader>ls", function()
+  if is_available("aerial.nvim") then
+    require("telescope").extensions.aerial.aerial()
+  else
+    require("telescope.builtin").lsp_document_symbols()
+  end
+end, { desc = "Search symbols" })
