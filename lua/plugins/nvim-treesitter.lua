@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   main = "nvim-treesitter.configs",
-  dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+  dependencies = { "andymass/vim-matchup", "nvim-treesitter/nvim-treesitter-textobjects" },
   event = { "BufReadPost", "BufNewFile", "BufWritePost" },
   cmd = {
     "TSBufDisable",
@@ -87,6 +87,7 @@ return {
     opts.highlight = { enable = true }
     opts.incremental_selection = { enable = true }
     opts.indent = { enable = true }
+    opts.matchup = { enable = true }
     opts.textobjects = {
       select = {
         enable = true,
