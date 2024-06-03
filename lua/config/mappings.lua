@@ -161,7 +161,7 @@ map("n", "[r", function() require("illuminate")["goto_prev_reference"](false) en
 map("n", "<Leader>ur", function() require("illuminate").toggle_buf() end, { desc = "Toggle reference highlighting (buffer)" })
 map("n", "<Leader>uR", function() require("illuminate").toggle() end, { desc = "Toggle reference highlighting (global)" })
 
--- treesj
-map("n", "gj", "<Cmd>TSJJoin", { desc = "Join code block" })
-map("n", "gs", "<Cmd>TSJSplit", { desc = "Split code block" })
-map("n", "gm", "<Cmd>TSJToggle", { desc = "Split/Join code block" })
+--- treesj
+map("n", "gj", "<Cmd>TSJJoin<CR>", { desc = "Join code block" })
+map("n", "gs", "<Cmd>TSJSplit<CR>", { desc = "Split code block" })
+map("n", "gm", "<Cmd>TSJToggle<CR>", { desc = "Split/Join code block" })
