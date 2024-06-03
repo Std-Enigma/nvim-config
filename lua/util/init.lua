@@ -9,6 +9,10 @@
 ---@class util
 local M = {}
 
+--- A table to manage ToggleTerm terminals created by the user, indexed by the command run and then the instance number
+---@type table<string,table<integer,table>>
+M.user_terminals = {}
+
 --- Get a plugin spec from lazy
 ---@param plugin string The plugin to search for
 ---@return LazyPlugin? available # The found plugin spec from Lazy
@@ -126,6 +130,29 @@ function M.load_plugin_with_func(plugin, module, funcs)
 			module[func](...)
 		end
 	end
+end
+
+--- Toggle a user terminal if it exists, if not then create a new one and save it
+---@param opts string|table A terminal command string or a table of options for Terminal:new() (Check toggleterm.nvim documentation for table format)
+function M.toggle_term_cmd(opts)
+  local terms = M.user_terminals
+  -- if a command string is provided, create a basic table for Terminal:new() options
+  if type(opts) == "string" then opts = { cmd = opts } end
+  opts = M.extend_tbl({ hidden = true }, opts)
+  local num = vim.v.count > 0 and vim.v.count or 1
+  -- if terminal doesn't exist yet, create it
+  if not terms[opts.cmd] then terms[opts.cmd] = {} end
+  if not terms[opts.cmd][num] then
+    if not opts.count then opts.count = vim.tbl_count(terms) * 100 + num end
+    local on_exit = opts.on_exit
+    opts.on_exit = function(...)
+      terms[opts.cmd][num] = nil
+      if on_exit then on_exit(...) end
+    end
+    terms[opts.cmd][num] = require("toggleterm.terminal").Terminal:new(opts)
+  end
+  -- toggle the terminal
+  terms[opts.cmd][num]:toggle()
 end
 
 return M
