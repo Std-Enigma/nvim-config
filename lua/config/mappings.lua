@@ -165,3 +165,6 @@ map("n", "<Leader>uR", function() require("illuminate").toggle() end, { desc = "
 map("n", "gj", "<Cmd>TSJJoin<CR>", { desc = "Join code block" })
 map("n", "gs", "<Cmd>TSJSplit<CR>", { desc = "Split code block" })
 map("n", "gm", "<Cmd>TSJToggle<CR>", { desc = "Split/Join code block" })
+
+--- nvim-highlight-colors
+map("n", "<Leader>uz", function() require("nvim-highlight-colors").toggle() end)
