@@ -1,5 +1,6 @@
 return {
 	"stevearc/aerial.nvim",
+	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
 		attach_mode = "global",
 		backends = { "lsp", "treesitter", "markdown", "man" },
