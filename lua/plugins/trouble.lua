@@ -6,7 +6,6 @@ return {
 			keys = {
 				["q"] = "close",
 				["<Esc>"] = "close",
-				["<C-E>"] = "close",
 			},
 		},
 	},
