@@ -184,3 +184,43 @@ map("n", "<Leader>gd", function() require("gitsigns").diffthis() end, { desc = "
 
 --- aerial.nvim
 map("n", "<Leader>lS", function() require("aerial").toggle() end, { desc = "Symbols outline" })
+
+--- toggleterm.nvim
+local util = require "util"
+if vim.fn.executable "git" == 1 and vim.fn.executable "lazygit" == 1 then
+  local lazygit = {
+    callback = function()
+      local worktree = util.file_worktree()
+      local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
+      or ""
+      util.toggle_term_cmd("lazygit " .. flags)
+    end,
+    desc = "ToggleTerm lazygit",
+  }
+  map("n", "<Leader>gg", lazygit.callback, { desc = lazygit.desc })
+  map("n", "<Leader>tl", lazygit.callback, { desc = lazygit.desc })
+end
+if vim.fn.executable "node" == 1 then
+  map("n", "<Leader>tn", function() util.toggle_term_cmd "node" end, { desc = "ToggleTerm node" })
+end
+local gdu = vim.fn.has "mac" == 1 and "gdu-go" or "gdu"
+if vim.fn.has "win32" == 1 and vim.fn.executable(gdu) ~= 1 then gdu = "gdu_windows_amd64.exe" end
+if vim.fn.executable(gdu) == 1 then
+  map("n", "<Leader>tu", function() util.toggle_term_cmd(gdu) end, { desc = "ToggleTerm gdu" })
+end
+if vim.fn.executable "btm" == 1 then
+  map("n", "<Leader>tt" function() util.toggle_term_cmd "btm" end, { desc = "ToggleTerm btm" })
+end
+local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
+if python then
+  map("n", "<Leader>tp" function() util.toggle_term_cmd(python) end, { desc = "ToggleTerm python" })
+end
+map("n", "<Leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
+map("n", "<Leader>th", "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
+map("n", "<Leader>tv", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
+map("n", "<F7>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal" })
+map("t", "<F7>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+map("i", "<F7>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminl" })
+map("n", "<C-'>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal" }) -- requires terminal that supports binding <C-'>
+map("n", "<C-'>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" }) -- requires terminal that supports binding <C-'>
+map("n", "<C-'>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminl" }) -- requires terminal that supports binding <C-'>
