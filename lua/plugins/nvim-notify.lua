@@ -16,6 +16,10 @@ return {
 				vim.wo[win].conceallevel = 3
 			end,
 		},
+		config = function(_, opts)
+			require("notify").setup(opts)
+			require("telescope").load_extension("notify")
+		end,
 	},
 
 	{
