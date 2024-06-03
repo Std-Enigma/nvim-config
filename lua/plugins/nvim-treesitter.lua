@@ -1,7 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   main = "nvim-treesitter.configs",
-  dependencies = { "andymass/vim-matchup", "RRethy/nvim-treesitter-endwise", "nvim-treesitter/nvim-treesitter-textobjects" },
+  dependencies = {
+    "stevearc/aerial.nvim",
+    "andymass/vim-matchup",
+    "RRethy/nvim-treesitter-endwise",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   event = { "BufReadPost", "BufNewFile", "BufWritePost" },
   cmd = {
     "TSBufDisable",
