@@ -274,3 +274,8 @@ map("n", "<Leader>ls", function()
     require("telescope.builtin").lsp_document_symbols()
   end
 end, { desc = "Search symbols" })
+map("n", "<Leader>fT", "<Cmd>TodoTelescope<CR>", { desc = "Find TODOs" })
+
+--- todo-comments.nvim
+map("n", "]T", function() require("todo-comments").jump_next() end, { desc = "Next TODO comment" })
+map("n", "[T", function() require("todo-comments").jump_prev() end, { desc = "Previous TODO comment" })
