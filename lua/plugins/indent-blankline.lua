@@ -3,6 +3,7 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile", "BufWritePost" },
 		cmd = { "IBLEnable", "IBLDisable", "IBLToggle", "IBLEnableScope", "IBLDisableScope", "IBLToggleScope" },
+		dependencies = "echasnovski/mini.indentscope",
 		main = "ibl",
 		opts = {
 			indent = { char = "▏", tab_char = "▏" },
