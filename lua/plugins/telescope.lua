@@ -38,4 +38,10 @@ return {
     build = "make",
     config = function(_, _) require("telescope").load_extension("fzf") end,
   },
+
+  {
+    "catppuccin",
+    optional = true,
+    opts = { integrations = { telescope = { style = "nvchad" } } }
+  },
 }

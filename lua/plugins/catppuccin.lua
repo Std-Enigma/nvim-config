@@ -14,7 +14,6 @@ return {
 			harpoon = true,
 			neotree = true,
 			overseer = true,
-			telescope = { style = "nvchad" },
 		},
 	},
 }
