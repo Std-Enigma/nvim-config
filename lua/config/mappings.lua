@@ -181,3 +181,6 @@ map("n", "<Leader>gs", function() require("gitsigns").stage_hunk() end, { desc =
 map("n", "<Leader>gS", function() require("gitsigns").stage_buffer() end, { desc = "Stage Git buffer" })
 map("n", "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Unstage Git hunk" })
 map("n", "<Leader>gd", function() require("gitsigns").diffthis() end, { desc = "View Git diff" })
+
+--- aerial.nvim
+map("n", "<Leader>lS", function() require("aerial").toggle() end, { desc = "Symbols outline" })
