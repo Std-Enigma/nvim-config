@@ -10,7 +10,6 @@ return {
 		integrations = {
 			hop = true,
 			mason = true,
-			aerial = true,
 			harpoon = true,
 			neotree = true,
 			overseer = true,
