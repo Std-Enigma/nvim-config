@@ -17,8 +17,8 @@ M.user_terminals = {}
 ---@param plugin string The plugin to search for
 ---@return LazyPlugin? available # The found plugin spec from Lazy
 function M.get_plugin(plugin)
-  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
-  return lazy_config_avail and lazy_config.spec.plugins[plugin] or nil
+	local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+	return lazy_config_avail and lazy_config.spec.plugins[plugin] or nil
 end
 
 --- Check if a plugin is defined in lazy. Useful with lazy loading when a plugin is not necessarily loaded yet
@@ -72,7 +72,7 @@ end
 ---@param worktrees table<string, string>[]? an array like table of worktrees with entries `toplevel` and `gitdir`, default retrieves from `vim.g.git_worktrees`
 ---@return table<string, string>|nil # a table specifying the `toplevel` and `gitdir` of a worktree or nil if not found
 function M.file_worktree(file, worktrees)
-	worktrees = worktrees or M.config.git_worktrees
+	worktrees = worktrees or { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.dotfiles" }
 	if not worktrees then
 		return
 	end
@@ -135,24 +135,32 @@ end
 --- Toggle a user terminal if it exists, if not then create a new one and save it
 ---@param opts string|table A terminal command string or a table of options for Terminal:new() (Check toggleterm.nvim documentation for table format)
 function M.toggle_term_cmd(opts)
-  local terms = M.user_terminals
-  -- if a command string is provided, create a basic table for Terminal:new() options
-  if type(opts) == "string" then opts = { cmd = opts } end
-  opts = M.extend_tbl({ hidden = true }, opts)
-  local num = vim.v.count > 0 and vim.v.count or 1
-  -- if terminal doesn't exist yet, create it
-  if not terms[opts.cmd] then terms[opts.cmd] = {} end
-  if not terms[opts.cmd][num] then
-    if not opts.count then opts.count = vim.tbl_count(terms) * 100 + num end
-    local on_exit = opts.on_exit
-    opts.on_exit = function(...)
-      terms[opts.cmd][num] = nil
-      if on_exit then on_exit(...) end
-    end
-    terms[opts.cmd][num] = require("toggleterm.terminal").Terminal:new(opts)
-  end
-  -- toggle the terminal
-  terms[opts.cmd][num]:toggle()
+	local terms = M.user_terminals
+	-- if a command string is provided, create a basic table for Terminal:new() options
+	if type(opts) == "string" then
+		opts = { cmd = opts }
+	end
+	opts = M.extend_tbl({ hidden = true }, opts)
+	local num = vim.v.count > 0 and vim.v.count or 1
+	-- if terminal doesn't exist yet, create it
+	if not terms[opts.cmd] then
+		terms[opts.cmd] = {}
+	end
+	if not terms[opts.cmd][num] then
+		if not opts.count then
+			opts.count = vim.tbl_count(terms) * 100 + num
+		end
+		local on_exit = opts.on_exit
+		opts.on_exit = function(...)
+			terms[opts.cmd][num] = nil
+			if on_exit then
+				on_exit(...)
+			end
+		end
+		terms[opts.cmd][num] = require("toggleterm.terminal").Terminal:new(opts)
+	end
+	-- toggle the terminal
+	terms[opts.cmd][num]:toggle()
 end
 
 return M

@@ -209,15 +209,15 @@ if vim.fn.executable(gdu) == 1 then
   map("n", "<Leader>tu", function() util.toggle_term_cmd(gdu) end, { desc = "ToggleTerm gdu" })
 end
 if vim.fn.executable "btm" == 1 then
-  map("n", "<Leader>tt" function() util.toggle_term_cmd "btm" end, { desc = "ToggleTerm btm" })
+  map("n", "<Leader>tt", function() util.toggle_term_cmd "btm" end, { desc = "ToggleTerm btm" })
 end
 local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
 if python then
-  map("n", "<Leader>tp" function() util.toggle_term_cmd(python) end, { desc = "ToggleTerm python" })
+  map("n", "<Leader>tp", function() util.toggle_term_cmd(python) end, { desc = "ToggleTerm python" })
 end
 map("n", "<Leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
-map("n", "<Leader>th", "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
-map("n", "<Leader>tv", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
+map("n", "<Leader>th", "<Cmd>ToggleTerm size=15 direction=horizontal<CR>", { desc = "ToggleTerm horizontal split" })
+map("n", "<Leader>tv", "<Cmd>ToggleTerm size=50 direction=vertical<CR>", { desc = "ToggleTerm vertical split" })
 map("n", "<F7>", '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = "Toggle terminal" })
 map("t", "<F7>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 map("i", "<F7>", "<Esc><Cmd>ToggleTerm<CR>", { desc = "Toggle terminl" })
