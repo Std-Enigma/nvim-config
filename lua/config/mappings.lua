@@ -168,3 +168,16 @@ map("n", "gm", "<Cmd>TSJToggle<CR>", { desc = "Split/Join code block" })
 
 --- nvim-highlight-colors
 map("n", "<Leader>uz", function() require("nvim-highlight-colors").toggle() end)
+
+--- gitsigns.nvim
+map("n", "]g", function() require("gitsigns").next_hunk() end, { desc = "Next Git hunk" })
+map("n", "[g", function() require("gitsigns").prev_hunk() end, { desc = "Previous Git hunk" })
+map("n", "<Leader>gl", function() require("gitsigns").blame_line() end, { desc = "View Git blame" })
+map("n", "<Leader>gL", function() require("gitsigns").blame_line { full = true } end, { desc = "View full Git blame" })
+map("n", "<Leader>gp", function() require("gitsigns").preview_hunk_inline() end, { desc = "Preview Git hunk" })
+map("n", "<Leader>gh", function() require("gitsigns").reset_hunk() end, { desc = "Reset Git hunk" })
+map("n", "<Leader>gr", function() require("gitsigns").reset_buffer() end, { desc = "Reset Git buffer" })
+map("n", "<Leader>gs", function() require("gitsigns").stage_hunk() end, { desc = "Stage Git hunk" })
+map("n", "<Leader>gS", function() require("gitsigns").stage_buffer() end, { desc = "Stage Git buffer" })
+map("n", "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Unstage Git hunk" })
+map("n", "<Leader>gd", function() require("gitsigns").diffthis() end, { desc = "View Git diff" })
