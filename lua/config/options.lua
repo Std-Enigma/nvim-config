@@ -60,6 +60,7 @@ opt.cmdheight = 0 -- hide command line unless needed
 opt.laststatus = 3 -- global statusline
 opt.foldcolumn = "1" -- show foldcolumn
 opt.signcolumn = "yes" -- always show the sign column
+opt.guifont = "JetBrainsMono Nerd Font Mono:h12" -- sets the font family and size
 opt.fillchars = { eob = " " } -- disable `~` on nonexistent lines
 
 opt.confirm = true -- raise a dialog asking if you wish to save the current file(s)
