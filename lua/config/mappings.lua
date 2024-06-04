@@ -127,7 +127,7 @@ map({"i", "n", "s"}, "<C-B>", function() if not require("noice.lsp").scroll(-4) 
 --- trouble.nvim
 map("n", "<Leader>xl", "<Cmd>Trouble loclist toggle<CR>", { desc = "Location list" })
 map("n", "<Leader>xq", "<Cmd>Trouble quickfix toggle<CR>", { desc = "Quickfix list" })
-map("n", "<Leader>xt", "<Cmd>Trouble todo<CR>", desc = "Todo list" })
+map("n", "<Leader>xt", "<Cmd>Trouble todo<CR>", { desc = "Todo list" })
 map("n", "<Leader>xT", "<Cmd>Trouble todo filter={tag={TODO,FIX,FIXME}}<CR>", desc = "Todo/Fix/Fixme list" })
 map("n", "<Leader>xX", "<Cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (global)" })
 map("n", "<Leader>xx", "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Diagnostics (buffer)" })
